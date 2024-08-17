@@ -21,33 +21,33 @@ The dataset contains 2,000 records with the following columns:
 - **Missing Values**: Some records have missing values in the age, quantity, price_per_unit, cogs, and total_sale columns.
 
 DELETE FROM Retail_sales
-WHERE transactions_id IS NULL
-OR
-sale_date IS NULL
-OR
-sale_time	IS NULL
-OR
-customer_id	IS NULL
-OR
-gender	IS NULL
-OR
-age	IS NULL
-OR
-category	IS NULL
-OR
-quantity	IS NULL
-OR
-price_per_unit	IS NULL
-OR
-cogs IS NULL
-OR
-total_sale IS NULL
+-WHERE transactions_id IS NULL
+-OR
+-sale_date IS NULL
+-OR
+-sale_time	IS NULL
+-OR
+-customer_id	IS NULL
+-OR
+-gender	IS NULL
+-OR
+-age	IS NULL
+-OR
+-category	IS NULL
+-OR
+-quantity	IS NULL
+-OR
+-price_per_unit	IS NULL
+-OR
+-cogs IS NULL
+-OR
+-total_sale IS NULL
 
-13 records were deleted
+-13 records were deleted
 
 ## Data Exploration
 155 unique customers. 
-3 unique Categories.
+-3 unique Categories.
 
 ## Data Analysis Report: Retail Sales Analysis
 
@@ -55,35 +55,35 @@ total_sale IS NULL
 SELECT * FROM Retail_sales
 WHERE sale_date = '2022-11-05' 
 
-![Alt Text](image_url)
+![Alt Text](https://github.com/Sus-31/Retail_Sales_Analysis/blob/main/1.png)
 
 - **Key Insight**: The sales on November 5th were relatively balanced across different product categories, with a mix of Clothing, Beauty, and Electronics.
 
 ### 2. SQL query to retrieve all transactions where the category is 'Clothing' and the quantity sold is 4 or more in the month of Nov-2022:
 SELECT * FROM Retail_sales
-WHERE category = 'Clothing'
-AND 
-TO_CHAR(sale_date, 'YYYY-MM')='2022-11'
-AND
-quantity >= 4
+-WHERE category = 'Clothing'
+-AND 
+-TO_CHAR(sale_date, 'YYYY-MM')='2022-11'
+-AND
+-quantity >= 4
 
-![Alt Text](image_url)
+![Alt Text](https://github.com/Sus-31/Retail_Sales_Analysis/blob/main/2.png)
 
 - **Key Insight**: There were no instances where the quantity of Clothing sold exceeded 4 units in a single transaction during November 2022, indicating potential stocking issues or low demand for bulk purchases.
 
 ### 3. SQL query to calculate the total sales (total_sale) for each category:
 SELECT category,SUM(total_sale) as total_amount, COUNT(*) AS total_orders
-FROM Retail_sales
-GROUP BY 1
+-FROM Retail_sales
+-GROUP BY 1
 
-![Alt Text](image_url)
+![Alt Text](https://github.com/Sus-31/Retail_Sales_Analysis/blob/main/3.png)
 - **Key Insight**: Clothing has the highest total sales, followed by Electronics and Beauty. The sales distribution indicates a relatively even demand across these three major categories.
 
 ### 4. SQL query to find the average age of customers who purchased items from the 'Beauty' category:
 SELECT ROUND(AVG(age), 2) AS average_age FROM Retail_sales
 WHERE category='Beauty'
 
-![Alt Text](image_url)
+![Alt Text](https://github.com/Sus-31/Retail_Sales_Analysis/blob/main/4.png)
 - **Key Insight**: The average customer age for Beauty products is approximately 38 years, suggesting that middle-aged consumers are the primary buyers in this category.
 
 ### 5. SQL query to find all transactions where the total_sale is greater than 1000
@@ -91,7 +91,7 @@ WHERE category='Beauty'
 SELECT *
 FROM Retail_sales
 WHERE total_sale > 1000
-![Alt Text](image_url)
+![Alt Text](https://github.com/Sus-31/Retail_Sales_Analysis/blob/main/5.png)
 - **Key Insight**: A significant number of high-value transactions involve Beauty and Clothing products, highlighting these categories as premium segments.
 
 ### 6. SQL query to find the total number of transactions (transaction_id) made by each gender in each category:
@@ -100,7 +100,7 @@ FROM Retail_sales
 GROUP BY category, gender
 ORDER BY 1
 
-![Alt Text](image_url)
+![Alt Text](https://github.com/Sus-31/Retail_Sales_Analysis/blob/main/6.png)
 - **Key Insight**: The transaction count is relatively balanced between genders across all categories, with a slight preference for Clothing among males.
 
 ### 7. SQL query to calculate the average sale for each month. Find out best selling month in each year:
@@ -115,7 +115,7 @@ FROM (
 	) AS t1
 WHERE rank=1
 
-![Alt Text](image_url)
+![Alt Text](https://github.com/Sus-31/Retail_Sales_Analysis/blob/main/7.png)
 
 - **Key Insight**: July 2022 and February 2023 were the peak months in terms of average sales, possibly driven by seasonal promotions or holidays.
 
@@ -126,7 +126,7 @@ GROUP BY 1
 ORDER BY 2 DESC
 LIMIT 5
 
-![Alt Text](image_url)
+![Alt Text](https://github.com/Sus-31/Retail_Sales_Analysis/blob/main/8.png)
 - **Key Insight**: A small number of customers contribute significantly to overall sales, highlighting the importance of targeting and retaining high-value customers.
 
 ### 9. SQL query to find the number of unique customers who purchased items from each category:
@@ -135,7 +135,7 @@ FROM Retail_sales
 GROUP BY 1
 
 
-![Alt Text](image_url)
+![Alt Text](https://github.com/Sus-31/Retail_Sales_Analysis/blob/main/9.png)
  
 - **Key Insight**: The number of unique customers is evenly distributed across categories, indicating broad and consistent customer engagement.
 
@@ -148,7 +148,7 @@ SELECT (CASE
   FROM Retail_sales
   GROUP BY 1
 
-![Alt Text](image_url)
+![Alt Text](https://github.com/Sus-31/Retail_Sales_Analysis/blob/main/10.png)
 
 - **Key Insight**: The majority of orders occur in the evening, suggesting that marketing and promotional efforts should be intensified during this period to maximize sales.
 
